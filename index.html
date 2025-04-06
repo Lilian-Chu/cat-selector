@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./assets/icons8-cat-96.png" type="image/x-icon">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <!-- styles -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Cat Selector App</title>
+</head>
+
+<body>
+  <script src="index.js"></script>
+
+  <main id="homeBox">
+
+    <h1>Welcome to the Cat Selector Quiz!</h1>
+  
+    <img id="homeRandomCat" src="/assets/placeholder.png">
+  
+    <p>Want to find the perfect cat breed for you? Different cat breeds tend to display certain traits
+  and these traits may fit with certain lifestyles better than other lifestyles. As such, this quiz asks
+  8 questions about your lifestyle to find the cat breed that would most likely be compatible with you!</p>
+
+    <a id="quizBtn" href="quiz.html">Start the quiz!</a>
+
+  </main>
+
+  <footer>
+    <p>Icons by <a href="https://icons8.com">Icons8</a></p>
+    <p>Assets by <a href="https://sozaino.site/">OKUMONO</a></p>
+  </footer>
+
+<script>
+const api_key = 'live_lUlnGGWyLHZwKDRycoHwC6BnE1cInxjgXNPHpKO9JjwiTA32jf7tcOd0qOyNEE93';
+const url = 'https://api.thecatapi.com/v1/images/search';
+
+randomImage();
+    
+async function randomImage() {
+    const response = await fetch(url);
+    const json = await response.json();
+    document.getElementById("homeRandomCat").src = json[0].url;
+}
+
+</script>
+
+</body>
